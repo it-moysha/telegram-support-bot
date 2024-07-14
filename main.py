@@ -18,12 +18,12 @@ if HEROKU_APP_NAME is None:  # pooling mode
     updater.idle()
 
 else:  # webhook mode
-    print(f"Running bot in webhook mode. Make sure that this url is correct: https://{HEROKU_APP_NAME}.herokuapp.com/")
+    print(f"Running bot in webhook mode. Make sure that this url is correct: https://{HEROKU_APP_NAME}/")
     updater.start_webhook(
         listen="0.0.0.0",
         port=PORT,
         url_path=TELEGRAM_TOKEN,
-        webhook_url=f"https://{HEROKU_APP_NAME}.herokuapp.com/{TELEGRAM_TOKEN}"
+        webhook_url=f"https://{HEROKU_APP_NAME}/{TELEGRAM_TOKEN}"
     )
 
     updater.idle()
